@@ -1,0 +1,34 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mariadb
+    container_name: db-server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: anish
+    ports:
+      - "3306:3306"
+
+  adminer:
+    image: adminer
+    container_name: adminer-server
+    restart: always
+    ports:
+      - "8080:8080"
+
+  elasticsearch:
+    image: elasticsearch
+    container_name: es-server
+    restart: always
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+
+  kibana:
+    image: kibana
+    container_name: kibana-server
+    restart: always
+    ports:
+      - 5601:5601
